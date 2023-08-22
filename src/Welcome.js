@@ -1,9 +1,15 @@
-// import { myProfileData } from "./data"
-import './Welcome.css'
+import PropTypes from 'prop-types';
+import styles from './Welcome.module.css';
 
 
-export const WelcomeMessage = ({name}) => {
+const WelcomeMessage = ({name}) => {
     return(
-            <h2 className="welcome-message">Welcome to Friend Tracker, {name}</h2>
-    )
+            <h2 className={styles.welcomeMessage}>Welcome to Friend Tracker, {name}</h2>
+    );
+};
+
+WelcomeMessage.propTypes = {
+    name: PropTypes.string.isRequired,
 }
+
+export { WelcomeMessage };

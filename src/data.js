@@ -1,5 +1,6 @@
 export const myProfileData = {
     name: 'Brett Shackett',
+    id: '4',
     profilePicUrl: `${process.env.PUBLIC_URL}/Stock_Headshot.jpg`,
     age: 25,
     bio: 'I like to program, I also like food.',
@@ -8,6 +9,7 @@ export const myProfileData = {
   }
 
   export const friendsData = [{
+    id: '1',
     name: 'Jar Myers',
     profilePicUrl: `${process.env.PUBLIC_URL}/jar_myers.jpg`,
     age: 27,
@@ -17,6 +19,7 @@ export const myProfileData = {
   },
   {
     name: 'Albert Wagner',
+    id: '2',
     profilePicUrl: `${process.env.PUBLIC_URL}/albert_wagner.jpg`,
     age: 45,
     bio: 'I look like Gru from Despicable Me',
@@ -25,6 +28,7 @@ export const myProfileData = {
   },
   {
     name: 'Ryan Taylor',
+    id: '3',
     profilePicUrl: `${process.env.PUBLIC_URL}/ryan_taylor.jpg`,
     age: 129,
     bio: 'I am literally a catfish since this is all fake info',

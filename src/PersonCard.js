@@ -2,10 +2,18 @@ import styles from './PersonCard.module.css';
 import PropTypes from 'prop-types';
 
 const PersonCard = ({
-    person: { profilePicUrl, name, age }
+    person: { id, profilePicUrl, name, age },
+    isFavorite, 
+    onCardClicked
 }) => {
+
+
     return (
-        <div className = {styles.card}>
+        <div 
+            className = {isFavorite ? styles.cardFavorite : styles.cardNormal}
+            onClick = {() => onCardClicked(id)}
+        >
+
             <div className = {styles.profilePicLeft}>
                 <div className = {styles.profilePicWrap}>
                     <img
@@ -26,10 +34,13 @@ const PersonCard = ({
 
 PersonCard.propTypes = {
     person: PropTypes.shape({
+        id: PropTypes.string,
         name: PropTypes.string.isRequired,
         profilePicUrl: PropTypes.string,
         age: PropTypes.number
     }).isRequired,
+    isFavorite: PropTypes.bool,
+    onCardClicked: PropTypes.func,
 };
 
 export {PersonCard};

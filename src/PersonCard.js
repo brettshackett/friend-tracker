@@ -10,7 +10,7 @@ const PersonCard = ({
 
     return (
         <div 
-            className = {isFavorite ? styles.cardFavorite : styles.cardNormal}
+            className = {styles.card}
             onClick = {() => onCardClicked(id)}
         >
 
@@ -39,7 +39,6 @@ PersonCard.propTypes = {
         profilePicUrl: PropTypes.string,
         age: PropTypes.number
     }).isRequired,
-    isFavorite: PropTypes.bool,
     onCardClicked: PropTypes.func,
 };
 

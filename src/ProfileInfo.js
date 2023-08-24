@@ -29,7 +29,7 @@ const ProfileInfo = ({
         <h3 className = {styles.detailHeading}>Birthday</h3>
         <p>{dob}</p>
         <h3 className = {styles.detailHeading}>Interests</h3>
-        {interests.map(interest => <Tag text ={interest} />)}
+        {interests.map(interest => <Tag key = {interest} text ={interest} />)}
         </>
       );
 }

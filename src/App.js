@@ -7,17 +7,19 @@ import { PeopleList } from './PeopleList';
 
 export const App = () => {
 
-  const [favoriteIds, setFavoriteIds] = useState([]);
+  const existingState = JSON.parse(localStorage.getItem('favoriteIds'));
+  const [favoriteIds, setFavoriteIds] = useState(existingState || []);
 
   const favorites = favoriteIds.map(id => friendsData.find(friend => friend.id === id));
   const nonFavorites = friendsData.filter(friend => !favoriteIds.find(id => friend.id === id))
 
   const toggleFavorite = personId => {
-    if(favoriteIds.includes(personId)){
-      setFavoriteIds(favoriteIds.filter(id => id !== personId));
-    }else{
-      setFavoriteIds(favoriteIds.concat(personId));
-    }
+    let newFavoriteIds = favoriteIds.includes(personId) 
+    ? favoriteIds.filter(id => id !== personId) 
+    : favoriteIds.concat(personId);
+
+      setFavoriteIds(newFavoriteIds);
+      localStorage.setItem('favoriteIds', JSON.stringify(newFavoriteIds));
   }
 
 

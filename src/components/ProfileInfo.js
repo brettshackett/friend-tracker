@@ -3,7 +3,8 @@ import styles from './ProfileInfo.module.css';
 import { Tag } from './Tag';
 
 const ProfileInfo = ({
-    person: { profilePicUrl, name, age, bio, dob, interests }
+    person: { profilePicUrl, name, age, bio, dob, interests },
+    onToggleFavorite = () => {}
 }) => {
     // props destructered
     const displaySummary = message =>{
@@ -30,6 +31,7 @@ const ProfileInfo = ({
         <p>{dob}</p>
         <h3 className = {styles.detailHeading}>Interests</h3>
         {interests.map(interest => <Tag key = {interest} text ={interest} />)}
+        <button onClick={onToggleFavorite} className ={styles.actionButton}>Toggle Favorite</button>
         </>
       );
 }

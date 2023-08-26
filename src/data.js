@@ -15,7 +15,7 @@ export const myProfileData = {
     age: 27,
     bio: 'Likes to travel to far away place',
     dob: 'March 3, 1983',
-    interests: ['Fish', 'Meeting People', 'Scream']
+    interests: ['Fishing', 'Meeting People', 'Screaming']
   },
   {
     name: 'Albert Wagner',
@@ -24,7 +24,7 @@ export const myProfileData = {
     age: 45,
     bio: 'I look like Gru from Despicable Me',
     dob: 'January 1, 1983',
-    interests: ['Adopt children', 'Be a supervillain', 'Steal the moon']
+    interests: ['Adopting children', 'Being a supervillain', 'Stealing the moon']
   },
   {
     name: 'Ryan Taylor',
@@ -33,5 +33,5 @@ export const myProfileData = {
     age: 129,
     bio: 'I am literally a catfish since this is all fake info',
     dob: 'May 7, 1983',
-    interests: ['Travel', 'Learn new languages', 'Smile']
+    interests: ['Traveling', 'Learning new languages', 'Smiling']
   }]

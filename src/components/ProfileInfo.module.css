@@ -24,3 +24,8 @@ h3{
 .detailHeading{
     border-bottom: 1px dotted #ccc;
 }
+
+.actionButton{
+    margin-top: 16px;
+    width: 100%;
+}

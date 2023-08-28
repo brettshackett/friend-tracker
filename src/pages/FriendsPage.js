@@ -2,9 +2,14 @@ import { WelcomeMessage } from '../components/Welcome';
 import { myProfileData, friendsData } from '../data';
 import { PeopleList } from '../components/PeopleList';
 import { useNavigate } from 'react-router-dom';
-import styles from './FriendsPage.module.css'
+import styles from './FriendsPage.module.css';
+import { useContext } from 'react';
+import { FavoritesContext } from '../contexts/FavoritesContext'
 
-const FriendsPage = ({ favoriteIds, onToggleFavorite =()=> {} }) => {
+const FriendsPage = () => {
+
+  const { favoriteIds,toggleFavorite } = useContext(FavoritesContext);
+
   const navigate = useNavigate();
 
   const favorites = favoriteIds.map(id => friendsData.find(friend => friend.id === id));
@@ -24,15 +29,17 @@ const FriendsPage = ({ favoriteIds, onToggleFavorite =()=> {} }) => {
         people = {favorites} 
         onClickPerson={goToPersonDetail}
         personActionName = 'Remove from Favorites'
-        onPersonAction ={onToggleFavorite} />
+        onPersonAction ={toggleFavorite} />
       <h2 className={styles.contentHeading}>My Friends</h2>
       <PeopleList 
         people = {nonFavorites} 
         onClickPerson={goToPersonDetail}
         personActionName = 'Add to Favorites'
-        onPersonAction={onToggleFavorite} />
+        onPersonAction={toggleFavorite}
+        allowAdditions />
     </>
   )
 };
+
 
 export {FriendsPage};

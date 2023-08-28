@@ -50,6 +50,8 @@ PersonCard.propTypes = {
         age: PropTypes.number
     }).isRequired,
     onCardClicked: PropTypes.func,
+    actionNamea: PropTypes.string,
+    onAction: PropTypes.func,
 };
 
 export {PersonCard};

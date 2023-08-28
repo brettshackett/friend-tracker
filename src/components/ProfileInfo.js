@@ -4,12 +4,11 @@ import { Tag } from './Tag';
 
 const ProfileInfo = ({
     person: { profilePicUrl, name, age, bio, dob, interests },
-    onToggleFavorite = () => {}
+    actionName,
+    onAction,
 }) => {
     // props destructered
-    const displaySummary = message =>{
-        alert(`${name} is ${age} years old. ${message}`)
-    }
+
     return (
         <>
         <div className={styles.profilePicContainer}>
@@ -20,7 +19,6 @@ const ProfileInfo = ({
                 alt={`${name} smiling`} />
             </div>
         </div>
-        <button onClick={() => displaySummary('Hi there.')}>Display Summary</button>
         <h3 className = {styles.detailHeading}>Name</h3>
         <p>{name}</p>
         <h3 className = {styles.detailHeading}>Age</h3>
@@ -31,7 +29,7 @@ const ProfileInfo = ({
         <p>{dob}</p>
         <h3 className = {styles.detailHeading}>Interests</h3>
         {interests.map(interest => <Tag key = {interest} text ={interest} />)}
-        <button onClick={onToggleFavorite} className ={styles.actionButton}>Toggle Favorite</button>
+        {actionName && onAction && <button onClick={onAction} className ={styles.actionButton}>{actionName}</button>}
         </>
       );
 }
@@ -45,6 +43,8 @@ ProfileInfo.propTypes = {
         dob: PropTypes.string,
         interests: PropTypes.arrayOf(PropTypes.string).isRequired
     }).isRequired,
+    actionName: PropTypes.string,
+    onAction: PropTypes.func,
 }
 
 export {ProfileInfo}

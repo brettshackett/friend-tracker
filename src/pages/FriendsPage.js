@@ -1,19 +1,21 @@
 import { WelcomeMessage } from '../components/Welcome';
-import { myProfileData, friendsData } from '../data';
+import { myProfileData } from '../data';
 import { PeopleList } from '../components/PeopleList';
 import { useNavigate } from 'react-router-dom';
 import styles from './FriendsPage.module.css';
 import { useContext } from 'react';
-import { FavoritesContext } from '../contexts/FavoritesContext'
+import { FavoritesContext } from '../contexts/FavoritesContext';
+import { FriendsContext } from '../contexts/FriendsContext';
 
 const FriendsPage = () => {
 
   const { favoriteIds,toggleFavorite } = useContext(FavoritesContext);
+  const { friends } = useContext(FriendsContext);
 
   const navigate = useNavigate();
 
-  const favorites = favoriteIds.map(id => friendsData.find(friend => friend.id === id));
-  const nonFavorites = friendsData.filter(friend => !favoriteIds.find(id => friend.id === id))
+  const favorites = favoriteIds.map(id => friends.find(friend => friend.id === id));
+  const nonFavorites = friends.filter(friend => !favoriteIds.find(id => friend.id === id))
 
   const goToPersonDetail = personId => {
     navigate(`/friends/${personId}`);

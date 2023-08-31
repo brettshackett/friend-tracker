@@ -4,8 +4,7 @@ import { Tag } from './Tag';
 
 const ProfileInfo = ({
     person: { profilePicUrl, name, age, bio, dob, interests },
-    actionName,
-    onAction,
+    actions = [],
 }) => {
     // props destructered
 
@@ -29,7 +28,12 @@ const ProfileInfo = ({
         <p>{dob}</p>
         <h3 className = {styles.detailHeading}>Interests</h3>
         {interests.map(interest => <Tag key = {interest} text ={interest} />)}
-        {actionName && onAction && <button onClick={onAction} className ={styles.actionButton}>{actionName}</button>}
+        {actions.map(action => (<button 
+                                key={action.actionName} 
+                                onClick={action.handler} 
+                                className ={styles.actionButton}>
+                                    {action.actionName}
+                                    </button>))}
         </>
       );
 }
@@ -43,8 +47,12 @@ ProfileInfo.propTypes = {
         dob: PropTypes.string,
         interests: PropTypes.arrayOf(PropTypes.string).isRequired
     }).isRequired,
-    actionName: PropTypes.string,
-    onAction: PropTypes.func,
+    actions: PropTypes.arrayOf(
+        PropTypes.shape({
+            actionName: PropTypes.string.isRequired,
+            onAction: PropTypes.func.isRequired,
+        })
+    )
 }
 
 export {ProfileInfo}

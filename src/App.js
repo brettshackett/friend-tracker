@@ -7,6 +7,7 @@ import { NavBar } from './components/NavBar';
 import styles from  './App.module.css';
 import { FavoritesProvider } from './components/FavoritesProvider';
 import { FriendsProvider } from './components/FriendsProvider';
+import { EditFriendPage } from './pages/EditFriendPage';
 
 
 export const App = () => {
@@ -19,6 +20,7 @@ export const App = () => {
           <Routes>
             <Route exact path='/' element={<FriendsPage />} />
             <Route path='/friends/:friendId' element = {<FriendDetailPage />} />
+            <Route path='/edit/:friendId' element = {<EditFriendPage />} />
             <Route path='/user-profile' element = {<UserProfilePage />}/>
             <Route path='/new-friend' element = {<NewFriendPage />} /> 
           </Routes>
